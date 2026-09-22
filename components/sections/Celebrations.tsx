@@ -70,15 +70,16 @@ function CelebrationCard({
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col items-center text-center mb-8 sm:mb-10"
+          className="flex flex-col items-center text-center mb-8 sm:mb-10 w-full px-4"
           style={{ gap: "clamp(0.4rem, 1vw, 0.65rem)" }}
         >
           <h3
-            className="leading-tight"
+            className="leading-tight max-w-full"
             style={{
               fontFamily: "'Great Vibes', cursive",
               color: THEME_COLOR,
-              fontSize: "clamp(2rem, 5.5vw, 3rem)",
+              fontSize: "clamp(1.6rem, 6.5vw, 3rem)",
+              overflowWrap: "break-word",
             }}
           >
             {location}

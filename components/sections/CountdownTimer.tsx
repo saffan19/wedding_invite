@@ -68,7 +68,7 @@ export default function CountdownTimer() {
   return (
     <section
       data-section
-      className="relative min-h-[50vh] sm:min-h-[80vh] flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-[58vh] sm:min-h-[80vh] flex flex-col items-center justify-center overflow-hidden"
       style={{
         paddingBlock: "clamp(4rem, 8vw, 7rem)",
         background: "linear-gradient(180deg, #4A0E1A 0%, #5C1220 50%, #4A0E1A 100%)",
@@ -112,20 +112,21 @@ export default function CountdownTimer() {
         />
       </motion.div>
 
-      {/* Mobile Floral Accents */}
+      {/* Mobile Floral Accents — small enough to fit the section's height
+          without being clipped top/bottom by overflow-hidden. */}
       <motion.div
         animate={{ rotate: [-2, 2, -2] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 -left-20 w-48 md:hidden pointer-events-none origin-top-left z-0"
-        style={{ opacity: 0.6 }}
+        className="absolute top-2 -left-6 w-24 md:hidden pointer-events-none origin-top-left z-0"
+        style={{ opacity: 0.55 }}
       >
         <img src={withBasePath("/column-left.png")} alt="" className="w-full h-auto" />
       </motion.div>
       <motion.div
         animate={{ rotate: [2, -2, 2] }}
         transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 -right-20 w-48 md:hidden pointer-events-none origin-top-right z-0"
-        style={{ opacity: 0.6 }}
+        className="absolute top-2 -right-6 w-24 md:hidden pointer-events-none origin-top-right z-0"
+        style={{ opacity: 0.55 }}
       >
         <img src={withBasePath("/column-right.png")} alt="" className="w-full h-auto" />
       </motion.div>
