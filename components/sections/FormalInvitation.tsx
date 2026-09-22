@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { type CSSProperties } from "react";
+import { withBasePath } from "@/lib/basePath";
 
 // ─── Local tokens ────────────────────────────────────────────────────────
 // Quiet luxury lives in restraint: warm ivory paper, deep charcoal type,
@@ -138,7 +139,7 @@ export default function FormalInvitation() {
         aria-hidden
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
-          backgroundImage: "url('/invitation-card.png')",
+          backgroundImage: `url('${withBasePath("/invitation-card.png")}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: 0.07,

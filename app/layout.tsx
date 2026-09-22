@@ -4,14 +4,15 @@ import { WeddingProvider } from "@/components/providers/WeddingContext";
 import MusicPlayer from "@/components/ui/MusicPlayer";
 import NavigationDots from "@/components/ui/NavigationDots";
 import { weddingConfig } from "@/lib/wedding-config";
+import { withBasePath } from "@/lib/basePath";
 
 export const metadata: Metadata = {
   title: `${weddingConfig.coupleNames} — Wedding Invitation`,
   description: `Join us for the wedding celebration of ${weddingConfig.coupleNames} on ${weddingConfig.weddingDateFormatted} in Bengaluru, India.`,
   icons: {
-    icon: [{ url: "/sa.png", type: "image/png" }],
-    shortcut: ["/sa.png"],
-    apple:  ["/sa.png"],
+    icon: [{ url: withBasePath("/sa.png"), type: "image/png" }],
+    shortcut: [withBasePath("/sa.png")],
+    apple:  [withBasePath("/sa.png")],
   },
   openGraph: {
     title: `${weddingConfig.coupleNames} — Wedding Invitation`,

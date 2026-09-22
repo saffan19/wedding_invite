@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import { withBasePath } from "@/lib/basePath";
 
 const THEME_COLOR = "#2C3E35";
 
@@ -27,7 +28,7 @@ export default function DressCode() {
         {/* ─── CARD 1 — DRESS CODE ─────────────────────────────────────── */}
         <div className="relative w-full">
           <motion.img
-            src="/roses.png"
+            src={withBasePath("/roses.png")}
             alt=""
             initial={{ opacity: 0, scale: 0.85 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -159,7 +160,7 @@ export default function DressCode() {
         {/* ─── CARD 2 — THE WEDDING CELEBRATION ──────────────────────── */}
         <div className="relative w-full mb-6 sm:mb-8 md:mb-16">
           <motion.img
-            src="/cypress.png"
+            src={withBasePath("/cypress.png")}
             alt=""
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -173,7 +174,7 @@ export default function DressCode() {
           />
 
           <motion.img
-            src="/stand.png"
+            src={withBasePath("/stand.png")}
             alt=""
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}

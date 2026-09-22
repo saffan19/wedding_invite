@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { weddingTimelineDisplayItems } from "@/lib/data/weddingSchedule";
+import { withBasePath } from "@/lib/basePath";
 
 const THEME_COLOR = "#2C3E35";
 
@@ -72,7 +73,7 @@ export default function ScheduleTimeline() {
         }}
         className="absolute left-0 top-0 z-30 w-[20%] sm:w-[15%] md:w-[13%] origin-top pointer-events-none"
       >
-        <img src="/curtain-left.png" alt="" className="w-full h-auto" />
+        <img src={withBasePath("/curtain-left.png")} alt="" className="w-full h-auto" />
       </motion.div>
 
       <motion.div
@@ -85,7 +86,7 @@ export default function ScheduleTimeline() {
         }}
         className="absolute right-0 top-0 z-30 w-[20%] sm:w-[15%] md:w-[13%] origin-top pointer-events-none"
       >
-        <img src="/curtain-right.png" alt="" className="w-full h-auto" />
+        <img src={withBasePath("/curtain-right.png")} alt="" className="w-full h-auto" />
       </motion.div>
 
       <div className="absolute top-0 left-1/2 -translate-x-1/2 z-0 w-full md:w-[80%] lg:w-[70%] pointer-events-none">
@@ -95,7 +96,7 @@ export default function ScheduleTimeline() {
           className="w-full origin-top"
         >
           <img
-            src="/curtain-center.png"
+            src={withBasePath("/curtain-center.png")}
             alt=""
             className="w-full h-auto"
             style={{ opacity: 0.32 }}
@@ -133,7 +134,7 @@ export default function ScheduleTimeline() {
         <div className="relative w-full flex justify-center">
           <TimelineBlock items={t.weddingItems} />
           <motion.img
-            src="/vase.png"
+            src={withBasePath("/vase.png")}
             alt=""
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}

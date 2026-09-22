@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { weddingConfig } from "@/lib/wedding-config";
 import { Heart } from "lucide-react";
+import { withBasePath } from "@/lib/basePath";
 
 const THEME = "#3D5A5B";
 
@@ -13,7 +14,7 @@ export default function Maintenance() {
       <div
         className="absolute inset-0 opacity-40 mix-blend-overlay"
         style={{
-          backgroundImage: "url('/hero-background.png')",
+          backgroundImage: `url('${withBasePath("/hero-background.png")}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

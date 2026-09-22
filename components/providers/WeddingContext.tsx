@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useRef, useState } from "react";
 import { weddingConfig } from "@/lib/wedding-config";
+import { withBasePath } from "@/lib/basePath";
 
 interface WeddingContextType {
   guestName: string;
@@ -32,7 +33,7 @@ export function WeddingProvider({ children }: { children: React.ReactNode }) {
   // Manage audio
   useEffect(() => {
     if (typeof window === "undefined") return;
-    audioRef.current = new Audio(weddingConfig.music.src);
+    audioRef.current = new Audio(withBasePath(weddingConfig.music.src));
     audioRef.current.loop = true;
     audioRef.current.volume = 0.35;
     return () => {

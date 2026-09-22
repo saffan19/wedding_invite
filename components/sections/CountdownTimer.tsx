@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { weddingConfig } from "@/lib/wedding-config";
 import { getCountdown } from "@/lib/utils";
+import { withBasePath } from "@/lib/basePath";
 
 const THEME_COLOR = "#2C3E35";
 
@@ -78,7 +79,7 @@ export default function CountdownTimer() {
         className="absolute left-0 top-0 bottom-0 z-0 hidden xl:block origin-top-left"
       >
         <img
-          src="/column-left.png"
+          src={withBasePath("/column-left.png")}
           alt=""
           className="h-full w-auto object-contain object-left pointer-events-none select-none"
           style={{ maxWidth: "450px" }}
@@ -97,7 +98,7 @@ export default function CountdownTimer() {
         className="absolute right-0 top-0 bottom-0 z-0 hidden xl:block origin-top-right"
       >
         <img
-          src="/column-right.png"
+          src={withBasePath("/column-right.png")}
           alt=""
           className="h-full w-auto object-contain object-right pointer-events-none select-none"
           style={{ maxWidth: "450px" }}
@@ -111,7 +112,7 @@ export default function CountdownTimer() {
         className="absolute top-0 -left-20 w-48 md:hidden pointer-events-none origin-top-left z-0"
         style={{ opacity: 0.5 }}
       >
-        <img src="/column-left.png" alt="" className="w-full h-auto" />
+        <img src={withBasePath("/column-left.png")} alt="" className="w-full h-auto" />
       </motion.div>
       <motion.div
         animate={{ rotate: [2, -2, 2] }}
@@ -119,7 +120,7 @@ export default function CountdownTimer() {
         className="absolute top-0 -right-20 w-48 md:hidden pointer-events-none origin-top-right z-0"
         style={{ opacity: 0.5 }}
       >
-        <img src="/column-right.png" alt="" className="w-full h-auto" />
+        <img src={withBasePath("/column-right.png")} alt="" className="w-full h-auto" />
       </motion.div>
 
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center">

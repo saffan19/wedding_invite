@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { MousePointer2 } from "lucide-react";
 import { useWedding } from "@/components/providers/WeddingContext";
+import { withBasePath } from "@/lib/basePath";
 import { useState, useRef, useEffect } from "react";
 
 export default function IntroOverlay() {
@@ -72,9 +73,9 @@ export default function IntroOverlay() {
           style={{ position: "absolute", inset: 0 }}
         >
           <picture style={{ width: "100%", height: "100%", display: "block" }}>
-            <source srcSet="/intro-photo-desktop.png" media="(min-width: 768px)" />
+            <source srcSet={withBasePath("/intro-photo-desktop.png")} media="(min-width: 768px)" />
             <img
-              src="/intro-photo.png"
+              src={withBasePath("/intro-photo.png")}
               alt="Wedding envelope — Safwan & Afrah"
               style={{
                 width: "100%",
@@ -90,7 +91,7 @@ export default function IntroOverlay() {
 
         <video
           ref={videoRef}
-          src="/intro-video.mp4"
+          src={withBasePath("/intro-video.mp4")}
           playsInline
           muted
           onEnded={() => {
