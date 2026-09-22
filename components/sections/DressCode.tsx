@@ -211,17 +211,33 @@ export default function DressCode() {
               </h3>
 
               {/* Dates — Nikah & Reception */}
-              <p
-                className="font-serif"
-                style={{
-                  color: THEME_COLOR,
-                  opacity: 0.85,
-                  fontSize: "clamp(1rem, 1.4vw, 1.25rem)",
-                  letterSpacing: "0.01em",
-                }}
+              <div
+                className="flex flex-col items-center"
+                style={{ gap: "clamp(0.2rem, 0.5vw, 0.35rem)" }}
               >
-                Thursday 22 &amp; Friday 23 October 2026
-              </p>
+                <p
+                  className="font-serif"
+                  style={{
+                    color: THEME_COLOR,
+                    opacity: 0.85,
+                    fontSize: "clamp(1rem, 1.4vw, 1.25rem)",
+                    letterSpacing: "0.01em",
+                  }}
+                >
+                  The Nikah &mdash; Thursday, 22 October 2026
+                </p>
+                <p
+                  className="font-serif"
+                  style={{
+                    color: THEME_COLOR,
+                    opacity: 0.85,
+                    fontSize: "clamp(1rem, 1.4vw, 1.25rem)",
+                    letterSpacing: "0.01em",
+                  }}
+                >
+                  The Reception &mdash; Friday, 23 October 2026
+                </p>
+              </div>
 
               {/* Venue — Tennis Pavilion, Bengaluru Palace */}
               <div
