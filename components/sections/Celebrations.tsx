@@ -2,15 +2,17 @@
 
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import { withBasePath } from "@/lib/basePath";
 
 const THEME_COLOR = "#5C1220";
 
 const TEXT = {
   title: "The Venue",
   viewMap: "View on Map",
-  historyTitle: "Bengaluru Palace",
+  historyTitle: "The Tennis Pavilion",
   history: [
-    "Built in 1887 in a Tudor-style reminiscent of England's Windsor Castle, Bengaluru Palace is one of the city's most iconic heritage landmarks. Its manicured lawns and the historic Tennis Pavilion provide a timeless, regal backdrop for our Nikah and reception celebrations.",
+    "Tucked within the storied grounds of Bengaluru Palace, the Tennis Pavilion is a graceful colonial-era garden house — its long verandahs and iron-latticed arches once host to lawn tennis and afternoon gatherings in the palace's heyday.",
+    "Framed by the palace's Tudor towers in the distance and surrounded by manicured lawns, its open-air charm and old-world elegance make it the perfect setting for our Nikah and reception.",
   ],
 };
 
@@ -50,93 +52,20 @@ function CelebrationCard({
             x: { duration: 6, repeat: Infinity, ease: "easeInOut" },
             opacity: { duration: 0.8 }
           }}
-          className="relative z-20"
-          style={{ marginBottom: isVenue ? "20px" : (isHotel ? "-32px" : "-28px") }}
+          className="relative z-20 mb-6 sm:mb-8"
         >
           <img
             src={image}
             alt={`${location} — wedding venue`}
-            className={`h-auto drop-shadow-xl block ${isVenue ? "rounded-3xl border-4 border-white/80" : ""}`}
+            className="h-auto drop-shadow-xl block"
             style={{
-              width: isVenue ? "clamp(12rem, 30vw, 24rem)" : (isHotel ? "clamp(8rem, 22vw, 18rem)" : "clamp(7rem, 18vw, 16rem)"),
+              width: isVenue ? "clamp(16rem, 42vw, 30rem)" : (isHotel ? "clamp(8rem, 22vw, 18rem)" : "clamp(7rem, 18vw, 16rem)"),
             }}
           />
-
-          {/* Venue info rendered directly on the photograph — no panel/border,
-              just clean editorial text on a soft bottom gradient for legibility. */}
-          {isVenue && (
-            <div
-              className="absolute inset-x-0 bottom-0 z-30 pointer-events-none"
-              style={{
-                paddingInline: "clamp(0.5rem, 2vw, 1.25rem)",
-                paddingBottom: "clamp(1rem, 3vw, 1.75rem)",
-                paddingTop: "clamp(1.5rem, 4vw, 2.5rem)",
-                background:
-                  "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(28,10,13,0.6) 75%, rgba(28,10,13,0.82) 100%)",
-                borderBottomLeftRadius: "clamp(1.25rem, 3vw, 1.875rem)",
-                borderBottomRightRadius: "clamp(1.25rem, 3vw, 1.875rem)",
-              }}
-            >
-              <div
-                className="flex flex-col items-center text-center pointer-events-auto"
-                style={{ gap: "clamp(0.35rem, 1vw, 0.6rem)", color: "#F8F6F0" }}
-              >
-                <h3
-                  className="leading-tight"
-                  style={{
-                    fontFamily: "'Great Vibes', cursive",
-                    color: "#F8F6F0",
-                    fontSize: "clamp(1.5rem, 4vw, 2.5rem)",
-                  }}
-                >
-                  {location}
-                </h3>
-                <p
-                  className="uppercase"
-                  style={{
-                    fontFamily: "'Cinzel', serif",
-                    color: "rgba(248,246,240,0.85)",
-                    letterSpacing: "0.18em",
-                    fontSize: "clamp(8px, 0.8vw, 10px)",
-                  }}
-                >
-                  {address}
-                </p>
-                <p
-                  className="uppercase font-medium"
-                  style={{
-                    fontFamily: "'Cinzel', serif",
-                    color: "rgba(248,246,240,0.95)",
-                    letterSpacing: "0.22em",
-                    fontSize: "clamp(9px, 0.9vw, 11px)",
-                  }}
-                >
-                  {date}
-                </p>
-                <a
-                  href={mapUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${viewMapLabel} — opens in a new tab`}
-                  className="uppercase font-bold border-b transition-all hover:opacity-80 active:scale-95 tap-target"
-                  style={{
-                    color: "#F8F6F0",
-                    borderColor: "rgba(248,246,240,0.55)",
-                    letterSpacing: "0.35em",
-                    fontSize: "clamp(8px, 0.8vw, 10px)",
-                    paddingBottom: 4,
-                    marginTop: 2,
-                  }}
-                >
-                  {viewMapLabel}
-                </a>
-              </div>
-            </div>
-          )}
         </motion.div>
       )}
 
-      {!image && isVenue && (
+      {isVenue && (
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -279,6 +208,7 @@ export default function Celebrations() {
 
         <div className="flex flex-col items-center w-full gap-12 sm:gap-20 md:gap-36">
           <CelebrationCard
+            image={withBasePath("/tennis-pavilion.png")}
             floatStyle="venue"
             location="Tennis Pavilion, Bengaluru Palace"
             address="1/21, Palace Road, Vasanth Nagar, Bengaluru, Karnataka 560006"
