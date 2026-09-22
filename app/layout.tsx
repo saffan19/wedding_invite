@@ -3,6 +3,7 @@ import "./globals.css";
 import { WeddingProvider } from "@/components/providers/WeddingContext";
 import MusicPlayer from "@/components/ui/MusicPlayer";
 import NavigationDots from "@/components/ui/NavigationDots";
+import AutoScroll from "@/components/ui/AutoScroll";
 import { weddingConfig } from "@/lib/wedding-config";
 import { withBasePath } from "@/lib/basePath";
 
@@ -38,6 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <MusicPlayer />
           <NavigationDots />
+          <AutoScroll />
         </WeddingProvider>
       </body>
     </html>

@@ -20,6 +20,7 @@ export default function Footer() {
 
   return (
     <footer
+      data-section
       className="relative flex flex-col items-center"
       style={{
         paddingTop: "clamp(4rem, 6vw, 6rem)",
