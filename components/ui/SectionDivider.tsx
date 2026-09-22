@@ -37,8 +37,8 @@ export default function SectionDivider() {
           style={{ background: "rgba(201,168,76,0.5)" }}
         />
         <span
-          className="text-amber-400/60 text-sm select-none"
-          style={{ fontFamily: "'Playfair Display', serif" }}
+          className="text-sm select-none"
+          style={{ fontFamily: "'Playfair Display', serif", color: "rgba(92,18,32,0.55)" }}
         >
           ✦
         </span>

@@ -7,7 +7,11 @@ import { weddingConfig } from "@/lib/wedding-config";
 import { getCountdown } from "@/lib/utils";
 import { withBasePath } from "@/lib/basePath";
 
-const THEME_COLOR = "#5C1220";
+// This section is a deep-maroon "band" — a deliberate punctuation point
+// against the cream sections around it, and a callback to the maroon
+// envelope at the very start of the experience.
+const CREAM = "#F7EFE0";
+const GOLD = "#E0BB6B";
 
 const TEXT = {
   until: "Until 22 October 2026",
@@ -26,8 +30,8 @@ function Digit({ value, label }: { value: number; label: string }) {
         className="font-serif italic font-light"
         style={{
           fontFamily: "'Cormorant Garamond', serif",
-          color: THEME_COLOR,
-          opacity: 0.95,
+          color: CREAM,
+          opacity: 0.97,
           fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
           lineHeight: 1,
         }}
@@ -38,8 +42,8 @@ function Digit({ value, label }: { value: number; label: string }) {
         className="uppercase tracking-[0.4em] sm:tracking-[0.5em] font-semibold"
         style={{
           fontFamily: "'Cinzel', serif",
-          color: THEME_COLOR,
-          opacity: 0.6,
+          color: GOLD,
+          opacity: 0.85,
           fontSize: "clamp(8px, 1vw, 11px)",
         }}
       >
@@ -64,8 +68,11 @@ export default function CountdownTimer() {
   return (
     <section
       data-section
-      className="relative min-h-[50vh] sm:min-h-[80vh] flex flex-col items-center justify-center overflow-hidden bg-transparent"
-      style={{ paddingBlock: "clamp(4rem, 8vw, 7rem)" }}
+      className="relative min-h-[50vh] sm:min-h-[80vh] flex flex-col items-center justify-center overflow-hidden"
+      style={{
+        paddingBlock: "clamp(4rem, 8vw, 7rem)",
+        background: "linear-gradient(180deg, #4A0E1A 0%, #5C1220 50%, #4A0E1A 100%)",
+      }}
     >
       {/* LEFT FLORAL COLUMN */}
       <motion.div
@@ -110,7 +117,7 @@ export default function CountdownTimer() {
         animate={{ rotate: [-2, 2, -2] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-0 -left-20 w-48 md:hidden pointer-events-none origin-top-left z-0"
-        style={{ opacity: 0.5 }}
+        style={{ opacity: 0.6 }}
       >
         <img src={withBasePath("/column-left.png")} alt="" className="w-full h-auto" />
       </motion.div>
@@ -118,7 +125,7 @@ export default function CountdownTimer() {
         animate={{ rotate: [2, -2, 2] }}
         transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-0 -right-20 w-48 md:hidden pointer-events-none origin-top-right z-0"
-        style={{ opacity: 0.5 }}
+        style={{ opacity: 0.6 }}
       >
         <img src={withBasePath("/column-right.png")} alt="" className="w-full h-auto" />
       </motion.div>
@@ -132,8 +139,8 @@ export default function CountdownTimer() {
             className="mb-3 sm:mb-4 md:mb-6"
             style={{
               fontFamily: "'Great Vibes', cursive",
-              color: THEME_COLOR,
-              opacity: 0.9,
+              color: GOLD,
+              opacity: 0.95,
               fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
             }}
           >
@@ -143,8 +150,8 @@ export default function CountdownTimer() {
             className="uppercase tracking-[0.5em] sm:tracking-[0.6em] font-semibold"
             style={{
               fontFamily: "'Cinzel', serif",
-              color: THEME_COLOR,
-              opacity: 0.65,
+              color: CREAM,
+              opacity: 0.75,
               fontSize: "clamp(9px, 1.1vw, 13px)",
             }}
           >
@@ -159,8 +166,8 @@ export default function CountdownTimer() {
                 <h3
                   className="font-serif mb-4"
                   style={{
-                    color: THEME_COLOR,
-                    opacity: 0.95,
+                    color: CREAM,
+                    opacity: 0.97,
                     fontSize: "clamp(1.8rem, 4vw, 3rem)",
                   }}
                 >
@@ -175,12 +182,12 @@ export default function CountdownTimer() {
                 >
                   <Digit value={time.days} label={t.days} />
                   <div
-                    className="w-[1px] bg-[#5C1220]/15 self-center hidden sm:block"
+                    className="w-[1px] bg-[#C9A84C]/30 self-center hidden sm:block"
                     style={{ height: "clamp(2.5rem, 6vw, 3.5rem)" }}
                   />
                   <Digit value={time.hours} label={t.hours} />
                   <div
-                    className="w-[1px] bg-[#5C1220]/15 self-center hidden sm:block"
+                    className="w-[1px] bg-[#C9A84C]/30 self-center hidden sm:block"
                     style={{ height: "clamp(2.5rem, 6vw, 3.5rem)" }}
                   />
                   <Digit value={time.minutes} label={t.minutes} />

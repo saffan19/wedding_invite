@@ -9,6 +9,7 @@ import DressCode from "@/components/sections/DressCode";
 import CountdownTimer from "@/components/sections/CountdownTimer";
 import Footer from "@/components/sections/Footer";
 import Maintenance from "@/components/sections/Maintenance";
+import SectionDivider from "@/components/ui/SectionDivider";
 import { weddingConfig } from "@/lib/wedding-config";
 
 export default function Home() {
@@ -23,7 +24,9 @@ export default function Home() {
       <FormalInvitation />
       <CountdownTimer />
       <Celebrations />
+      <SectionDivider />
       <ScheduleTimeline />
+      <SectionDivider />
       <DressCode />
       <Footer />
     </main>
