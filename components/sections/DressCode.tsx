@@ -14,7 +14,7 @@ export default function DressCode() {
   return (
     <section
       data-section
-      className="relative bg-transparent overflow-hidden flex flex-col items-center"
+      className="relative bg-transparent overflow-hidden flex flex-col items-center justify-center min-h-[100svh]"
       style={{
         paddingTop: "clamp(5rem, 10vw, 10rem)",
         paddingBottom: "clamp(6rem, 12vw, 12rem)",

@@ -7,8 +7,11 @@ import { useWedding } from "@/components/providers/WeddingContext";
 // before advancing to the next. Tuned to roughly how long each section
 // takes to read. The last entry (Footer) has no "next" to advance to, so
 // its value is unused but kept for index alignment.
-const DWELL_MS = [3000, 4200, 3200, 5200, 3200, 5500, 0];
-const SCROLL_DURATION_MS = 1400;
+const DWELL_MS = [3600, 5200, 4000, 6200, 4000, 6600, 0];
+const SCROLL_DURATION_MS = 2200;
+// How much the page dips in opacity at the midpoint of each transition —
+// a gentle crossfade layered on top of the slide, not a hard cut.
+const FADE_DIP = 0.4;
 
 function easeInOutQuad(t: number) {
   return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
@@ -16,10 +19,10 @@ function easeInOutQuad(t: number) {
 
 /**
  * Drives a one-time, cinematic auto-scroll through every [data-section]
- * once the envelope is opened — smooth eased scrolling with a pause on
- * each section, like a short video playing itself. Any real user input
- * (touch, wheel, click, key) permanently cancels it and hands control
- * back to normal manual scrolling — it never resumes after that.
+ * once the envelope is opened — smooth eased scrolling with a fade dip
+ * and a pause on each section, like a short video playing itself. Any
+ * real user input (touch, wheel, click, key) permanently cancels it and
+ * hands control back to normal manual scrolling — it never resumes.
  */
 export default function AutoScroll() {
   const { invitationOpen } = useWedding();
@@ -41,6 +44,7 @@ export default function AutoScroll() {
       cancelledRef.current = true;
       cancelAnimationFrame(rafId);
       window.clearTimeout(timeoutId);
+      document.body.style.opacity = "";
       removeInterruptListeners();
     };
 
@@ -63,13 +67,19 @@ export default function AutoScroll() {
           return;
         }
         const startTime = performance.now();
+        document.body.style.willChange = "opacity";
         const step = (now: number) => {
           if (cancelledRef.current) return;
           const t = Math.min((now - startTime) / SCROLL_DURATION_MS, 1);
           window.scrollTo(0, startY + diff * easeInOutQuad(t));
+          // Gentle crossfade: dips at the midpoint of the slide, back to
+          // full opacity by the time it settles on the next section.
+          document.body.style.opacity = String(1 - FADE_DIP * Math.sin(Math.PI * t));
           if (t < 1) {
             rafId = requestAnimationFrame(step);
           } else {
+            document.body.style.opacity = "";
+            document.body.style.willChange = "";
             resolve();
           }
         };
@@ -89,7 +99,7 @@ export default function AutoScroll() {
 
       for (let i = 0; i < sections.length; i++) {
         if (cancelledRef.current) return;
-        const dwell = DWELL_MS[i] ?? 3200;
+        const dwell = DWELL_MS[i] ?? 4000;
         await wait(dwell);
         if (cancelledRef.current) return;
 

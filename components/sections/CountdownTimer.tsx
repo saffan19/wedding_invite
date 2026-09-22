@@ -68,7 +68,7 @@ export default function CountdownTimer() {
   return (
     <section
       data-section
-      className="relative min-h-[58vh] sm:min-h-[80vh] flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden"
       style={{
         paddingBlock: "clamp(4rem, 8vw, 7rem)",
         background: "linear-gradient(180deg, #4A0E1A 0%, #5C1220 50%, #4A0E1A 100%)",
