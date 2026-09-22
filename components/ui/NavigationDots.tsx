@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useWedding } from "@/components/providers/WeddingContext";
 
 // Section order matches the page layout in app/page.tsx
-const SECTION_LABELS = ["Home", "Countdown", "Celebrations", "Schedule", "Dress Code"];
+const SECTION_LABELS = ["Home", "Invitation", "Countdown", "Celebrations", "Schedule", "Dress Code"];
 
 export default function NavigationDots() {
   const { activeSection, setActiveSection, invitationOpen } = useWedding();
@@ -30,7 +30,7 @@ export default function NavigationDots() {
         >
           <span
             className="absolute right-7 text-[10px] font-semibold tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none hidden md:block"
-            style={{ color: "#2C3E35" }}
+            style={{ color: "#5C1220" }}
           >
             {label}
           </span>
@@ -38,7 +38,7 @@ export default function NavigationDots() {
             animate={{
               width: activeSection === i ? 24 : 8,
               height: 8,
-              backgroundColor: activeSection === i ? "#2C3E35" : "rgba(44,62,53,0.45)",
+              backgroundColor: activeSection === i ? "#5C1220" : "rgba(92,18,32,0.45)",
             }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="rounded-full"

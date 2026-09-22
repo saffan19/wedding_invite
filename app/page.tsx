@@ -1,6 +1,7 @@
 "use client";
 import IntroOverlay from "@/components/sections/IntroOverlay";
 import HeroSection from "@/components/sections/HeroSection";
+import FormalInvitation from "@/components/sections/FormalInvitation";
 import Celebrations from "@/components/sections/Celebrations";
 import ScheduleTimeline from "@/components/sections/ScheduleTimeline";
 import DressCode from "@/components/sections/DressCode";
@@ -19,6 +20,7 @@ export default function Home() {
     <main className="flex flex-col">
       <IntroOverlay />
       <HeroSection />
+      <FormalInvitation />
       <CountdownTimer />
       <Celebrations />
       <ScheduleTimeline />

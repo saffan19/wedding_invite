@@ -2,9 +2,8 @@
 
 import { motion, useAnimation } from "framer-motion";
 import { weddingConfig } from "@/lib/wedding-config";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import FormalInvitation from "./FormalInvitation";
 import { useWedding } from "@/components/providers/WeddingContext";
 import { withBasePath } from "@/lib/basePath";
 
@@ -16,10 +15,6 @@ const TEXT = {
 export default function HeroSection() {
   const { invitationOpen } = useWedding();
   const [mounted, setMounted] = useState(false);
-  const [showInvitation, setShowInvitation] = useState(false);
-  const sequenceStarted = useRef(false);
-  const controlsLeft = useAnimation();
-  const controlsRight = useAnimation();
   const controlsContent = useAnimation();
   const controlsArrow = useAnimation();
 
@@ -29,42 +24,15 @@ export default function HeroSection() {
 
   useEffect(() => {
     setMounted(true);
+  }, []);
 
-    const sequence = async () => {
-      if (sequenceStarted.current) return;
-      sequenceStarted.current = true;
-
-      await new Promise((resolve) => setTimeout(resolve, 10000));
-
-      controlsContent.start({ opacity: 0, scale: 1.1, transition: { duration: 2.5 } });
-      setShowInvitation(true);
-      await Promise.all([
-        controlsLeft.start({ x: "-100%", transition: { duration: 5, ease: [0.45, 0, 0.55, 1] } }),
-        controlsRight.start({ x: "100%", transition: { duration: 5, ease: [0.45, 0, 0.55, 1] } }),
-      ]);
-
-      await new Promise((resolve) => setTimeout(resolve, 10000));
-
-      await Promise.all([
-        controlsLeft.start({ x: "0%", transition: { duration: 5, ease: [0.45, 0, 0.55, 1] } }),
-        controlsRight.start({ x: "0%", transition: { duration: 5, ease: [0.45, 0, 0.55, 1] } }),
-      ]);
-
-      setShowInvitation(false);
-      await controlsContent.start({ opacity: 1, scale: 1, transition: { duration: 2 } });
-      controlsArrow.start({ opacity: 1, y: 0, transition: { duration: 1 } });
-    };
-
-    if (typeof window !== "undefined") {
-      if (window.innerWidth < 768) {
-        if (invitationOpen) {
-          sequence();
-        }
-      } else {
-        sequence();
-      }
-    }
-  }, [controlsLeft, controlsRight, controlsContent, controlsArrow, invitationOpen]);
+  // Content reveals once, the moment the envelope is tapped open — no
+  // further automatic transitions happen after that.
+  useEffect(() => {
+    if (!invitationOpen) return;
+    controlsContent.start({ opacity: 1, y: 0, transition: { duration: 1.4, ease: [0.22, 1, 0.36, 1] } });
+    controlsArrow.start({ opacity: 1, y: 0, transition: { duration: 1, delay: 1.1 } });
+  }, [invitationOpen, controlsContent, controlsArrow]);
 
   // Respect users who enable reduced motion (spec §8 Accessibility).
   useEffect(() => {
@@ -89,55 +57,21 @@ export default function HeroSection() {
       data-section
       className="relative h-[100svh] w-full overflow-hidden bg-white"
     >
-      {/* ── BACKGROUND CONTENT (Formal Invitation Revealed) ── */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center">
-        {showInvitation && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="w-full h-full"
-          >
-            <FormalInvitation />
-          </motion.div>
-        )}
+      {/* ── BACKGROUND ── */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url('${withBasePath("/hero-background.png")}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/5" />
       </div>
 
-      {/* ── THE OPENING DOORS (Hero Background) ── */}
-      <div className="absolute inset-0 z-20 flex pointer-events-none">
-        <motion.div
-          animate={controlsLeft}
-          className="relative w-1/2 h-full overflow-hidden border-r border-white/10"
-        >
-          <div
-            className="absolute inset-0 w-[200%] h-full"
-            style={{
-              backgroundImage: `url('${withBasePath("/hero-background.png")}')`,
-              backgroundSize: "cover",
-              backgroundPosition: "left center",
-            }}
-          />
-          <div className="absolute inset-0 bg-black/5" />
-        </motion.div>
-
-        <motion.div
-          animate={controlsRight}
-          className="relative w-1/2 h-full overflow-hidden border-l border-white/10"
-        >
-          <div
-            className="absolute inset-0 w-[200%] h-full -left-full"
-            style={{
-              backgroundImage: `url('${withBasePath("/hero-background.png")}')`,
-              backgroundSize: "cover",
-              backgroundPosition: "right center",
-            }}
-          />
-          <div className="absolute inset-0 bg-black/5" />
-        </motion.div>
-      </div>
-
-      {/* ── HERO TEXT (Sitting on top of doors) ── */}
+      {/* ── HERO TEXT ── */}
       <motion.div
+        initial={{ opacity: 0, y: 16 }}
         animate={controlsContent}
         className="absolute inset-0 z-30 flex flex-col items-center justify-center text-center px-4 sm:px-6 pointer-events-none"
       >
@@ -145,7 +79,7 @@ export default function HeroSection() {
         <div className="flex flex-col items-center gap-2 md:gap-4 drop-shadow-2xl max-w-full">
           <motion.p
             className="text-white text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.5em] sm:tracking-[0.6em] font-light mb-4 sm:mb-6 md:mb-8 px-2"
-            style={{ fontFamily: "'Montserrat', sans-serif", textShadow: "0 2px 12px rgba(0,0,0,0.35)" }}
+            style={{ fontFamily: "'Cinzel', serif", textShadow: "0 2px 12px rgba(0,0,0,0.35)" }}
           >
             {t.preHeading}
           </motion.p>
@@ -184,7 +118,7 @@ export default function HeroSection() {
         </div>
       </motion.div>
 
-      {/* ── SCROLL INDICATOR (Appears after sequence) — compact glass disc ── */}
+      {/* ── SCROLL INDICATOR (Appears after entrance) — compact glass disc ── */}
       <motion.button
         type="button"
         onClick={handleScrollDown}

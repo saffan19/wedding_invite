@@ -7,7 +7,7 @@ import { weddingConfig } from "@/lib/wedding-config";
 import { getCountdown } from "@/lib/utils";
 import { withBasePath } from "@/lib/basePath";
 
-const THEME_COLOR = "#2C3E35";
+const THEME_COLOR = "#5C1220";
 
 const TEXT = {
   until: "Until 22 October 2026",
@@ -37,7 +37,7 @@ function Digit({ value, label }: { value: number; label: string }) {
       <span
         className="uppercase tracking-[0.4em] sm:tracking-[0.5em] font-semibold"
         style={{
-          fontFamily: "'Montserrat', sans-serif",
+          fontFamily: "'Cinzel', serif",
           color: THEME_COLOR,
           opacity: 0.6,
           fontSize: "clamp(8px, 1vw, 11px)",
@@ -142,7 +142,7 @@ export default function CountdownTimer() {
           <p
             className="uppercase tracking-[0.5em] sm:tracking-[0.6em] font-semibold"
             style={{
-              fontFamily: "'Montserrat', sans-serif",
+              fontFamily: "'Cinzel', serif",
               color: THEME_COLOR,
               opacity: 0.65,
               fontSize: "clamp(9px, 1.1vw, 13px)",
@@ -175,12 +175,12 @@ export default function CountdownTimer() {
                 >
                   <Digit value={time.days} label={t.days} />
                   <div
-                    className="w-[1px] bg-[#2C3E35]/15 self-center hidden sm:block"
+                    className="w-[1px] bg-[#5C1220]/15 self-center hidden sm:block"
                     style={{ height: "clamp(2.5rem, 6vw, 3.5rem)" }}
                   />
                   <Digit value={time.hours} label={t.hours} />
                   <div
-                    className="w-[1px] bg-[#2C3E35]/15 self-center hidden sm:block"
+                    className="w-[1px] bg-[#5C1220]/15 self-center hidden sm:block"
                     style={{ height: "clamp(2.5rem, 6vw, 3.5rem)" }}
                   />
                   <Digit value={time.minutes} label={t.minutes} />

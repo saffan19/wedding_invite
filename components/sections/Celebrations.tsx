@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
-const THEME_COLOR = "#2C3E35";
+const THEME_COLOR = "#5C1220";
 
 const TEXT = {
   title: "The Venue",
@@ -72,7 +72,7 @@ function CelebrationCard({
                 paddingBottom: "clamp(1rem, 3vw, 1.75rem)",
                 paddingTop: "clamp(1.5rem, 4vw, 2.5rem)",
                 background:
-                  "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(15,12,8,0.55) 75%, rgba(15,12,8,0.78) 100%)",
+                  "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(28,10,13,0.6) 75%, rgba(28,10,13,0.82) 100%)",
                 borderBottomLeftRadius: "clamp(1.25rem, 3vw, 1.875rem)",
                 borderBottomRightRadius: "clamp(1.25rem, 3vw, 1.875rem)",
               }}
@@ -94,7 +94,7 @@ function CelebrationCard({
                 <p
                   className="uppercase"
                   style={{
-                    fontFamily: "'Montserrat', sans-serif",
+                    fontFamily: "'Cinzel', serif",
                     color: "rgba(248,246,240,0.85)",
                     letterSpacing: "0.18em",
                     fontSize: "clamp(8px, 0.8vw, 10px)",
@@ -105,7 +105,7 @@ function CelebrationCard({
                 <p
                   className="uppercase font-medium"
                   style={{
-                    fontFamily: "'Montserrat', sans-serif",
+                    fontFamily: "'Cinzel', serif",
                     color: "rgba(248,246,240,0.95)",
                     letterSpacing: "0.22em",
                     fontSize: "clamp(9px, 0.9vw, 11px)",
@@ -157,7 +157,7 @@ function CelebrationCard({
           <p
             className="uppercase"
             style={{
-              fontFamily: "'Montserrat', sans-serif",
+              fontFamily: "'Cinzel', serif",
               color: THEME_COLOR,
               opacity: 0.7,
               letterSpacing: "0.18em",
@@ -169,7 +169,7 @@ function CelebrationCard({
           <p
             className="uppercase font-medium"
             style={{
-              fontFamily: "'Montserrat', sans-serif",
+              fontFamily: "'Cinzel', serif",
               color: THEME_COLOR,
               opacity: 0.8,
               letterSpacing: "0.22em",
@@ -186,7 +186,7 @@ function CelebrationCard({
             className="uppercase font-bold border-b transition-all hover:opacity-80 active:scale-95 tap-target mt-1"
             style={{
               color: THEME_COLOR,
-              borderColor: "rgba(44,62,53,0.4)",
+              borderColor: "rgba(92,18,32,0.4)",
               letterSpacing: "0.35em",
               fontSize: "clamp(8px, 0.8vw, 10px)",
               paddingBottom: 4,
@@ -201,7 +201,7 @@ function CelebrationCard({
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2 }}
-        className="w-full bg-[#F1EFE9] border border-[#E3DFD5] rounded-[clamp(1.5rem,4vw,3.25rem)] overflow-hidden"
+        className="w-full bg-[#FAF0E0] border border-[#E6D2A8] rounded-[clamp(1.5rem,4vw,3.25rem)] overflow-hidden"
         style={{
           padding: "clamp(1.75rem, 4vw, 4rem) clamp(1.25rem, 4vw, 3rem)",
         }}

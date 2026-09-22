@@ -5,7 +5,7 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import { weddingTimelineDisplayItems } from "@/lib/data/weddingSchedule";
 import { withBasePath } from "@/lib/basePath";
 
-const THEME_COLOR = "#2C3E35";
+const THEME_COLOR = "#5C1220";
 
 const TEXT = {
   wedding: "Program",
@@ -24,7 +24,7 @@ function TimelineBlock({ items }: { items: { time: string; event: string }[] }) 
               <span
                 className="uppercase tracking-[0.35em] sm:tracking-[0.4em] font-bold"
                 style={{
-                  fontFamily: "'Montserrat', sans-serif",
+                  fontFamily: "'Cinzel', serif",
                   color: THEME_COLOR,
                   opacity: 0.6,
                   fontSize: "clamp(7px, 0.85vw, 10px)",

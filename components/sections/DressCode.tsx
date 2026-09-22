@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { withBasePath } from "@/lib/basePath";
 
-const THEME_COLOR = "#2C3E35";
+const THEME_COLOR = "#5C1220";
 
 const TEXT = { title: "Dress Code" } as const;
 
@@ -45,7 +45,7 @@ export default function DressCode() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0 }}
-            className="w-full bg-[#F1EFE9] border border-[#E3DFD5] rounded-[clamp(1.5rem,4vw,2.75rem)]"
+            className="w-full bg-[#FAF0E0] border border-[#E6D2A8] rounded-[clamp(1.5rem,4vw,2.75rem)]"
             style={{
               padding: "clamp(2.5rem, 5vw, 5rem) clamp(1.25rem, 4vw, 4rem)",
             }}
@@ -56,7 +56,7 @@ export default function DressCode() {
               <p
                 className="uppercase tracking-[0.4em] sm:tracking-[0.5em] font-bold"
                 style={{
-                  fontFamily: "'Montserrat', sans-serif",
+                  fontFamily: "'Cinzel', serif",
                   color: THEME_COLOR,
                   opacity: 0.6,
                   fontSize: "clamp(9px, 0.95vw, 12px)",
@@ -81,7 +81,7 @@ export default function DressCode() {
               <p
                 className="uppercase tracking-[0.3em] sm:tracking-[0.35em] font-semibold"
                 style={{
-                  fontFamily: "'Montserrat', sans-serif",
+                  fontFamily: "'Cinzel', serif",
                   color: THEME_COLOR,
                   opacity: 0.7,
                   fontSize: "clamp(9px, 0.95vw, 12px)",
@@ -191,7 +191,7 @@ export default function DressCode() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0 }}
-            className="w-full bg-[#F1EFE9] border border-[#E3DFD5] rounded-[clamp(1.5rem,4vw,2.75rem)]"
+            className="w-full bg-[#FAF0E0] border border-[#E6D2A8] rounded-[clamp(1.5rem,4vw,2.75rem)]"
             style={{
               padding: "clamp(2.5rem, 5vw, 5rem) clamp(1.25rem, 4vw, 4rem)",
             }}
@@ -241,7 +241,7 @@ export default function DressCode() {
                 <p
                   className="uppercase tracking-[0.25em] sm:tracking-[0.3em] font-medium"
                   style={{
-                    fontFamily: "'Montserrat', sans-serif",
+                    fontFamily: "'Cinzel', serif",
                     color: THEME_COLOR,
                     opacity: 0.7,
                     fontSize: "clamp(9px, 0.95vw, 12px)",

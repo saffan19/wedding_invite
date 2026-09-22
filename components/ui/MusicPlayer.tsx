@@ -25,15 +25,15 @@ export default function MusicPlayer() {
         >
           {musicPlaying ? (
             <div className="relative">
-              <Volume2 size={20} className="text-[#3D5A5B]" strokeWidth={1.5} />
+              <Volume2 size={20} className="text-[#5C1220]" strokeWidth={1.5} />
               <motion.div 
                 animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="absolute inset-0 bg-[#3D5A5B]/20 rounded-full"
+                className="absolute inset-0 bg-[#5C1220]/20 rounded-full"
               />
             </div>
           ) : (
-            <VolumeX size={20} className="text-[#3D5A5B]" strokeWidth={1.5} />
+            <VolumeX size={20} className="text-[#5C1220]" strokeWidth={1.5} />
           )}
         </button>
       </motion.div>

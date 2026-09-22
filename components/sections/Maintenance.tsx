@@ -5,11 +5,11 @@ import { weddingConfig } from "@/lib/wedding-config";
 import { Heart } from "lucide-react";
 import { withBasePath } from "@/lib/basePath";
 
-const THEME = "#3D5A5B";
+const THEME = "#5C1220";
 
 export default function Maintenance() {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-[#1a1510] flex items-center justify-center px-6">
+    <div className="relative min-h-screen w-full overflow-hidden bg-[#1C0A0D] flex items-center justify-center px-6">
       {/* Background Image */}
       <div
         className="absolute inset-0 opacity-40 mix-blend-overlay"
@@ -30,7 +30,7 @@ export default function Maintenance() {
       <motion.div
         animate={{ y: [0, 10, 0], opacity: [0.2, 0.5, 0.2] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-[#3D5A5B] rounded-full blur-[100px]"
+        className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-[#5C1220] rounded-full blur-[100px]"
       />
 
       {/* Main Content Card */}
@@ -60,7 +60,7 @@ export default function Maintenance() {
 
         <h2
           className="text-white/90 text-[8px] sm:text-[10px] md:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] md:tracking-[0.4em] font-medium mb-4"
-          style={{ fontFamily: "'Montserrat', sans-serif" }}
+          style={{ fontFamily: "'Cinzel', serif" }}
         >
           {/* Preparing something beautiful */}
         </h2>

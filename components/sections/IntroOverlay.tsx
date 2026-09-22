@@ -4,15 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MousePointer2 } from "lucide-react";
 import { useWedding } from "@/components/providers/WeddingContext";
 import { withBasePath } from "@/lib/basePath";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function IntroOverlay() {
   const { invitationOpen, setInvitationOpen } = useWedding();
   const [closing, setClosing] = useState(false);
-  const [playingVideo, setPlayingVideo] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const motionMq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -33,16 +31,7 @@ export default function IntroOverlay() {
 
   const handleOpen = () => {
     setClosing(true);
-
-    if (typeof window !== "undefined" && window.innerWidth < 768 && videoRef.current) {
-      setPlayingVideo(true);
-      videoRef.current.play().catch(() => {
-        setPlayingVideo(false);
-        setTimeout(() => setInvitationOpen(true), 800);
-      });
-    } else {
-      setTimeout(() => setInvitationOpen(true), 800);
-    }
+    setTimeout(() => setInvitationOpen(true), 800);
   };
 
   if (invitationOpen) return null;
@@ -54,7 +43,7 @@ export default function IntroOverlay() {
       <motion.div
         key="envelope"
         initial={{ opacity: 0 }}
-        animate={{ opacity: closing && !playingVideo ? 0 : 1 }}
+        animate={{ opacity: closing ? 0 : 1 }}
         transition={{ duration: 0.8 }}
         onClick={!closing ? handleOpen : undefined}
         style={{
@@ -62,14 +51,29 @@ export default function IntroOverlay() {
           inset: 0,
           zIndex: 100,
           cursor: closing ? "default" : "pointer",
-          background: "#1a1510",
+          background: "#1C0A0D",
           userSelect: "none",
         }}
       >
         <motion.div
           initial={{ opacity: 0, scale: 1.04 }}
-          animate={{ opacity: 1, scale: closing && !playingVideo ? 1.08 : 1 }}
-          transition={{ duration: closing && !playingVideo ? 0.8 : 1.1, ease: [0.22, 1, 0.36, 1] }}
+          animate={
+            closing
+              ? { opacity: 1, scale: 1.08 }
+              : prefersReducedMotion
+              ? { opacity: 1, scale: 1 }
+              : { opacity: 1, scale: [1, 1.015, 1] }
+          }
+          transition={
+            closing
+              ? { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+              : prefersReducedMotion
+              ? { duration: 1.1, ease: [0.22, 1, 0.36, 1] }
+              : {
+                  opacity: { duration: 1.1, ease: [0.22, 1, 0.36, 1] },
+                  scale: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.1 },
+                }
+          }
           style={{ position: "absolute", inset: 0 }}
         >
           <picture style={{ width: "100%", height: "100%", display: "block" }}>
@@ -88,27 +92,6 @@ export default function IntroOverlay() {
             />
           </picture>
         </motion.div>
-
-        <video
-          ref={videoRef}
-          src={withBasePath("/intro-video.mp4")}
-          playsInline
-          muted
-          onEnded={() => {
-            setPlayingVideo(false);
-            setTimeout(() => setInvitationOpen(true), 800);
-          }}
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            zIndex: 20,
-            opacity: playingVideo ? 1 : 0,
-            pointerEvents: "none",
-          }}
-        />
 
         {!closing && (
           // Static centering wrapper — framer-motion's `animate={{ transform }}` would
@@ -158,7 +141,7 @@ export default function IntroOverlay() {
                 minHeight: 48,
                 borderRadius: 999,
                 border: "1px solid rgba(201,168,76,0.45)",
-                background: "rgba(20, 16, 10, 0.55)",
+                background: "rgba(28, 10, 13, 0.55)",
                 backdropFilter: "blur(16px) saturate(140%)",
                 WebkitBackdropFilter: "blur(16px) saturate(140%)",
                 boxShadow:
@@ -214,7 +197,7 @@ export default function IntroOverlay() {
                   color: "rgba(255,255,255,0.95)",
                   fontWeight: 600,
                   textShadow: "0 1px 6px rgba(0,0,0,0.55)",
-                  fontFamily: "'Montserrat', sans-serif",
+                  fontFamily: "'Cinzel', serif",
                 }}
               >
                 {tapText}

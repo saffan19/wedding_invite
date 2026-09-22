@@ -5,15 +5,15 @@ import { type CSSProperties } from "react";
 import { withBasePath } from "@/lib/basePath";
 
 // ─── Local tokens ────────────────────────────────────────────────────────
-// Quiet luxury lives in restraint: warm ivory paper, deep charcoal type,
-// a hushed sage for italic emphasis, antique champagne for one hairline.
+// Quiet luxury lives in restraint: warm ivory paper, deep maroon type,
+// a dusty rose-maroon for italic emphasis, antique gold for one hairline.
 const COLOR = {
-  ivory:     "#F4EFE3",
-  ivoryWarm: "#FAF6EB",
-  ink:       "#26241F",
-  inkSoft:   "#5C574B",
-  sage:      "#6F7B6A",
-  gold:      "#B49A57",
+  ivory:     "#F9F1E4",
+  ivoryWarm: "#FBF3E6",
+  ink:       "#2A0E12",
+  inkSoft:   "#6B3038",
+  sage:      "#8C4A52",
+  gold:      "#C9A84C",
 } as const;
 
 // Approved invitation copy — verbatim from the brief. Wording must not be
@@ -39,13 +39,14 @@ const INVITATION = {
 export default function FormalInvitation() {
   const reduceMotion = useReducedMotion();
 
-  // Slow, gentle, staggered fade-up of the five invitation blocks.
-  // Total sequence ~2.4s — under the user's patience threshold.
+  // Slow, gentle, staggered fade-up of the five invitation blocks, playing
+  // once as the section scrolls into view.
   const sequence = reduceMotion
-    ? { initial: false, animate: { opacity: 1, y: 0 } }
+    ? { initial: false as const, whileInView: { opacity: 1, y: 0 } }
     : {
         initial: { opacity: 0, y: 10 },
-        animate: { opacity: 1, y: 0 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, margin: "-80px" },
       };
   const timings = [
     { duration: 0.9, delay: 0.10, ease: [0.22, 1, 0.36, 1] as const },
@@ -57,7 +58,7 @@ export default function FormalInvitation() {
 
   // ─── Type styles (private, restrained palette) ──────────────────────────
   const eyebrowStyle: CSSProperties = {
-    fontFamily: "'Montserrat', sans-serif",
+    fontFamily: "'Cinzel', serif",
     color: COLOR.inkSoft,
     letterSpacing: "0.42em",
     fontSize: "clamp(0.62rem, 0.78vw, 0.82rem)",
