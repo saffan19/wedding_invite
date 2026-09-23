@@ -29,7 +29,7 @@ export default function Celebrations() {
         paddingBottom: "clamp(4rem, 8vw, 6rem)",
       }}
     >
-      <div className="relative z-10 w-full max-w-2xl mx-auto px-4 sm:px-6 flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-2xl mx-auto px-6 sm:px-8 flex flex-col items-center">
         <AnimatedSection direction="fade" className="text-center mb-10 sm:mb-14">
           <h2
             style={{
@@ -53,7 +53,7 @@ export default function Celebrations() {
             rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" },
             opacity: { duration: 0.8 },
           }}
-          className="mb-9 sm:mb-12"
+          className="mb-14 sm:mb-16"
         >
           <img
             src={withBasePath("/tennis-pavilion.png")}
@@ -68,7 +68,7 @@ export default function Celebrations() {
           className="flex flex-col items-center text-center w-full px-4"
         >
           <h3
-            className="leading-tight max-w-full mb-4"
+            className="leading-tight w-full max-w-full mb-4"
             style={{
               fontFamily: "'Great Vibes', cursive",
               color: THEME_COLOR,
@@ -79,23 +79,25 @@ export default function Celebrations() {
             {VENUE.name}
           </h3>
           <p
-            className="uppercase mb-7"
+            className="uppercase mb-7 w-full max-w-full"
             style={{
               fontFamily: "'Cinzel', serif",
               color: THEME_COLOR,
               opacity: 0.7,
               letterSpacing: "0.14em",
               fontSize: "clamp(9px, 0.85vw, 11px)",
+              overflowWrap: "break-word",
             }}
           >
             {VENUE.address}
           </p>
           <p
-            className="font-serif leading-relaxed max-w-md mb-9"
+            className="font-serif leading-relaxed w-full max-w-md mb-12"
             style={{
               color: THEME_COLOR,
               opacity: 0.85,
               fontSize: "clamp(0.95rem, 1.2vw, 1.1rem)",
+              overflowWrap: "break-word",
             }}
           >
             {VENUE.description}

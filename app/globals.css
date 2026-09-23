@@ -1,13 +1,11 @@
 @import "tailwindcss";
 
-/* ─── CSS Reset & Base ─── */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* Tailwind's own preflight (inside @layer base) already resets
+   margin/padding/box-sizing on every element. A duplicate reset here,
+   outside any @layer, would be unlayered — and per the CSS Cascade
+   Layers spec, unlayered styles always beat layered ones regardless of
+   specificity, silently zeroing out every padding/margin utility
+   (px-*, mb-*, etc.) site-wide. Do not re-add one outside @layer base. */
 
 html {
   scroll-behavior: smooth;
