@@ -3,7 +3,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { type CSSProperties } from "react";
 import { withBasePath } from "@/lib/basePath";
-import ScriptName from "@/components/ui/ScriptName";
 
 // ─── Local tokens ────────────────────────────────────────────────────────
 // Quiet luxury lives in restraint: warm ivory paper, deep maroon type,
@@ -175,7 +174,7 @@ export default function FormalInvitation() {
           transition={timings[0]}
           style={namesContainerStyle}
         >
-          <span><ScriptName name={INVITATION.firstName} /></span>
+          <span>{INVITATION.firstName}</span>
           <span aria-label="and" style={ampersandStyle}>
             {INVITATION.ampersand}
           </span>

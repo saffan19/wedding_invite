@@ -7,7 +7,7 @@ import { useWedding } from "@/components/providers/WeddingContext";
 // before advancing to the next. Tuned to roughly how long each section
 // takes to read. The last entry has no "next" to advance to, so its
 // value is unused but kept for index alignment.
-const DWELL_MS = [3600, 5200, 4000, 6200, 4000, 0];
+const DWELL_MS = [3600, 5200, 4000, 6200, 4000, 4000, 0];
 const SCROLL_DURATION_MS = 2200;
 
 function easeInOutQuad(t: number) {

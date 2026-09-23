@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { useWedding } from "@/components/providers/WeddingContext";
 import { withBasePath } from "@/lib/basePath";
-import ScriptName from "@/components/ui/ScriptName";
 
 const TEXT = {
   preHeading: "We are getting married",
@@ -97,12 +96,12 @@ export default function HeroSection() {
           <h1
             className="text-white leading-none"
             style={{
-              fontFamily: "'Great Vibes', cursive",
+              fontFamily: "'Alex Brush', cursive",
               textShadow: "0 4px 20px rgba(0,0,0,0.4)",
               fontSize: "clamp(3rem, 14vw, 11rem)",
             }}
           >
-            <ScriptName name={weddingConfig.bride} />
+            {weddingConfig.bride}
           </h1>
 
           <span
@@ -118,7 +117,7 @@ export default function HeroSection() {
           <h1
             className="text-white leading-none"
             style={{
-              fontFamily: "'Great Vibes', cursive",
+              fontFamily: "'Alex Brush', cursive",
               textShadow: "0 4px 20px rgba(0,0,0,0.4)",
               fontSize: "clamp(3rem, 14vw, 11rem)",
             }}
