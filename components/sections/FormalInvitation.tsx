@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { type CSSProperties } from "react";
 import { withBasePath } from "@/lib/basePath";
+import ScriptName from "@/components/ui/ScriptName";
 
 // ─── Local tokens ────────────────────────────────────────────────────────
 // Quiet luxury lives in restraint: warm ivory paper, deep maroon type,
@@ -20,7 +21,6 @@ const COLOR = {
 // rewritten, paraphrased, summarized, or "improved." Bold markers from the
 // brief indicate which words receive a subtle italic-serif emphasis.
 const INVITATION = {
-  eyebrow:   "A Royal Celebration of Love",
   firstName: "Afrah",
   ampersand: "&",
   lastName:  "Safwan",
@@ -49,23 +49,13 @@ export default function FormalInvitation() {
         viewport: { once: true, margin: "-80px" },
       };
   const timings = [
-    { duration: 0.9, delay: 0.10, ease: [0.22, 1, 0.36, 1] as const },
-    { duration: 1.1, delay: 0.30, ease: [0.22, 1, 0.36, 1] as const },
-    { duration: 0.9, delay: 0.55, ease: [0.22, 1, 0.36, 1] as const },
-    { duration: 0.8, delay: 0.85, ease: [0.22, 1, 0.36, 1] as const },
-    { duration: 1.0, delay: 1.10, ease: [0.22, 1, 0.36, 1] as const },
+    { duration: 1.1, delay: 0.10, ease: [0.22, 1, 0.36, 1] as const },
+    { duration: 0.9, delay: 0.40, ease: [0.22, 1, 0.36, 1] as const },
+    { duration: 0.8, delay: 0.70, ease: [0.22, 1, 0.36, 1] as const },
+    { duration: 1.0, delay: 0.95, ease: [0.22, 1, 0.36, 1] as const },
   ];
 
   // ─── Type styles (private, restrained palette) ──────────────────────────
-  const eyebrowStyle: CSSProperties = {
-    fontFamily: "'Cinzel', serif",
-    color: COLOR.inkSoft,
-    letterSpacing: "0.42em",
-    fontSize: "clamp(0.62rem, 0.78vw, 0.82rem)",
-    fontWeight: 500,
-    textTransform: "uppercase",
-  };
-
   const namesContainerStyle: CSSProperties = {
     fontFamily: "'Cormorant Garamond', serif",
     color: COLOR.ink,
@@ -179,47 +169,23 @@ export default function FormalInvitation() {
           gap: "clamp(1.5rem, 3.4vw, 2.6rem)",
         }}
       >
-        {/* 1 · Eyebrow — A ROYAL CELEBRATION OF LOVE */}
-        <motion.p
-          {...sequence}
-          transition={timings[0]}
-          style={eyebrowStyle}
-        >
-          {INVITATION.eyebrow}
-        </motion.p>
-
-        {/* Tiny ornamental glyph (a single 4px diamond) — one detail only. */}
-        <motion.span
-          {...sequence}
-          transition={timings[0]}
-          aria-hidden
-          style={{
-            display: "block",
-            width: 4,
-            height: 4,
-            background: COLOR.gold,
-            transform: "rotate(45deg)",
-            marginTop: "-0.4rem",
-          }}
-        />
-
-        {/* 2 · Names — RICHARD & ANITA (the visual heart) */}
+        {/* 1 · Names — the visual heart */}
         <motion.h2
           {...sequence}
-          transition={timings[1]}
+          transition={timings[0]}
           style={namesContainerStyle}
         >
-          <span>{INVITATION.firstName}</span>
+          <span><ScriptName name={INVITATION.firstName} /></span>
           <span aria-label="and" style={ampersandStyle}>
             {INVITATION.ampersand}
           </span>
           <span>{INVITATION.lastName}</span>
         </motion.h2>
 
-        {/* 3 · Opening sentence (italic emphasis) + body */}
+        {/* 2 · Opening sentence (italic emphasis) + body */}
         <motion.div
           {...sequence}
-          transition={timings[2]}
+          transition={timings[1]}
           className="flex flex-col items-center text-center"
           style={{ gap: "clamp(0.6rem, 1.3vw, 1.05rem)", maxWidth: "44ch" }}
         >
@@ -233,10 +199,10 @@ export default function FormalInvitation() {
           </p>
         </motion.div>
 
-        {/* 4 · Delicate divider — exactly one, hairline-thick, antique champagne */}
+        {/* 3 · Delicate divider — exactly one, hairline-thick, antique champagne */}
         <motion.div
           {...sequence}
-          transition={timings[3]}
+          transition={timings[2]}
           aria-hidden
           className="flex items-center justify-center"
           style={{ gap: 14, marginBlock: "clamp(0.4rem, 1vw, 0.85rem)" }}
@@ -270,10 +236,10 @@ export default function FormalInvitation() {
           />
         </motion.div>
 
-        {/* 5 · Closing — Two hearts, two journeys, now becoming one. */}
+        {/* 4 · Closing — Two hearts, two journeys, now becoming one. */}
         <motion.div
           {...sequence}
-          transition={timings[4]}
+          transition={timings[3]}
           className="flex flex-col items-center text-center"
           style={{ maxWidth: "32ch" }}
         >

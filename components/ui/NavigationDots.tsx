@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useWedding } from "@/components/providers/WeddingContext";
 
 // Section order matches the page layout in app/page.tsx
-const SECTION_LABELS = ["Home", "Invitation", "Countdown", "Celebrations", "Schedule", "Dress Code", "Farewell"];
+const SECTION_LABELS = ["Home", "Invitation", "Countdown", "Venue", "Program", "Farewell"];
 
 export default function NavigationDots() {
   const { activeSection, setActiveSection, invitationOpen } = useWedding();

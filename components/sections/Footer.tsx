@@ -4,6 +4,7 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import { weddingConfig } from "@/lib/wedding-config";
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
+import ScriptName from "@/components/ui/ScriptName";
 
 // A maroon closing band — a deliberate bookend to the maroon envelope the
 // guest opened at the very start of the experience.
@@ -21,7 +22,7 @@ export default function Footer() {
   return (
     <footer
       data-section
-      className="relative flex flex-col items-center"
+      className="relative flex flex-col items-center justify-center min-h-[100svh]"
       style={{
         paddingTop: "clamp(4rem, 6vw, 6rem)",
         paddingBottom: "clamp(3rem, 5vw, 5rem)",
@@ -57,7 +58,7 @@ export default function Footer() {
                 lineHeight: 1.1,
               }}
             >
-              {weddingConfig.coupleNames}
+              {weddingConfig.groom} & <ScriptName name={weddingConfig.bride} />
             </h2>
 
             <div className="flex items-center gap-2 sm:gap-3 w-full max-w-[200px]">

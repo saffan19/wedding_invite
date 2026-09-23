@@ -18,6 +18,7 @@ const TEXT = {
   days: "Days",
   hours: "Hours",
   minutes: "Minutes",
+  seconds: "Seconds",
   over: "The celebration has begun!",
 };
 
@@ -32,7 +33,7 @@ function Digit({ value, label }: { value: number; label: string }) {
           fontFamily: "'Cormorant Garamond', serif",
           color: CREAM,
           opacity: 0.97,
-          fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
+          fontSize: "clamp(2.1rem, 5.5vw, 5rem)",
           lineHeight: 1,
         }}
       >
@@ -74,61 +75,43 @@ export default function CountdownTimer() {
         background: "linear-gradient(180deg, #4A0E1A 0%, #5C1220 50%, #4A0E1A 100%)",
       }}
     >
-      {/* LEFT FLORAL COLUMN */}
+      {/* LEFT FLORAL COLUMN — stretches the full section height at every
+          breakpoint (the section is always at least one viewport tall),
+          mostly bled off the left edge so it reads as a corner accent
+          rather than dominating the content. */}
       <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        whileInView={{ x: -80, opacity: 1 }}
-        animate={{ rotate: [-1.5, 1.5, -1.5] }}
+        initial={{ opacity: 0, x: "-64%" }}
+        whileInView={{ opacity: 1 }}
+        animate={{ rotate: [-1, 1, -1], x: "-64%" }}
         transition={{
-          x: { duration: 2, ease: "easeOut" },
+          opacity: { duration: 1.2 },
           rotate: { duration: 10, repeat: Infinity, ease: "easeInOut" },
         }}
-        className="absolute left-0 top-0 bottom-0 z-0 hidden xl:block origin-top-left"
+        className="absolute left-0 inset-y-0 z-0 pointer-events-none origin-top-left"
       >
         <img
           src={withBasePath("/column-left.png")}
           alt=""
-          className="h-full w-auto object-contain object-left pointer-events-none select-none"
-          style={{ maxWidth: "450px" }}
+          className="h-full w-auto object-contain select-none"
         />
       </motion.div>
 
       {/* RIGHT FLORAL COLUMN */}
       <motion.div
-        initial={{ x: 100, opacity: 0 }}
-        whileInView={{ x: 80, opacity: 1 }}
-        animate={{ rotate: [1.5, -1.5, 1.5] }}
+        initial={{ opacity: 0, x: "64%" }}
+        whileInView={{ opacity: 1 }}
+        animate={{ rotate: [1, -1, 1], x: "64%" }}
         transition={{
-          x: { duration: 2, ease: "easeOut" },
+          opacity: { duration: 1.2 },
           rotate: { duration: 11, repeat: Infinity, ease: "easeInOut" },
         }}
-        className="absolute right-0 top-0 bottom-0 z-0 hidden xl:block origin-top-right"
+        className="absolute right-0 inset-y-0 z-0 pointer-events-none origin-top-right"
       >
         <img
           src={withBasePath("/column-right.png")}
           alt=""
-          className="h-full w-auto object-contain object-right pointer-events-none select-none"
-          style={{ maxWidth: "450px" }}
+          className="h-full w-auto object-contain select-none"
         />
-      </motion.div>
-
-      {/* Mobile Floral Accents — small enough to fit the section's height
-          without being clipped top/bottom by overflow-hidden. */}
-      <motion.div
-        animate={{ rotate: [-2, 2, -2] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-2 -left-6 w-24 md:hidden pointer-events-none origin-top-left z-0"
-        style={{ opacity: 0.55 }}
-      >
-        <img src={withBasePath("/column-left.png")} alt="" className="w-full h-auto" />
-      </motion.div>
-      <motion.div
-        animate={{ rotate: [2, -2, 2] }}
-        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-2 -right-6 w-24 md:hidden pointer-events-none origin-top-right z-0"
-        style={{ opacity: 0.55 }}
-      >
-        <img src={withBasePath("/column-right.png")} alt="" className="w-full h-auto" />
       </motion.div>
 
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center">
@@ -178,7 +161,7 @@ export default function CountdownTimer() {
             ) : (
               <AnimatedSection direction="up" delay={0.2}>
                 <div
-                  className="flex items-center justify-center gap-4 sm:gap-6 md:gap-10 lg:gap-14 w-full px-4 sm:px-0"
+                  className="flex items-center justify-center gap-2.5 sm:gap-5 md:gap-8 lg:gap-10 w-full px-2 sm:px-0"
                   style={{ flexWrap: "nowrap" }}
                 >
                   <Digit value={time.days} label={t.days} />
@@ -192,6 +175,11 @@ export default function CountdownTimer() {
                     style={{ height: "clamp(2.5rem, 6vw, 3.5rem)" }}
                   />
                   <Digit value={time.minutes} label={t.minutes} />
+                  <div
+                    className="w-[1px] bg-[#C9A84C]/30 self-center hidden sm:block"
+                    style={{ height: "clamp(2.5rem, 6vw, 3.5rem)" }}
+                  />
+                  <Digit value={time.seconds} label={t.seconds} />
                 </div>
               </AnimatedSection>
             )}

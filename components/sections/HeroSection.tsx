@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { useWedding } from "@/components/providers/WeddingContext";
 import { withBasePath } from "@/lib/basePath";
+import ScriptName from "@/components/ui/ScriptName";
 
 const TEXT = {
   preHeading: "We are getting married",
@@ -67,6 +68,15 @@ export default function HeroSection() {
         }}
       >
         <div className="absolute inset-0 bg-black/5" />
+        {/* Scrim so the pre-heading stays legible regardless of how bright
+            the underlying image is where it sits. */}
+        <div
+          className="absolute inset-x-0 top-0"
+          style={{
+            height: "48%",
+            background: "linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.28) 55%, rgba(0,0,0,0) 100%)",
+          }}
+        />
       </div>
 
       {/* ── HERO TEXT ── */}
@@ -92,7 +102,7 @@ export default function HeroSection() {
               fontSize: "clamp(3rem, 14vw, 11rem)",
             }}
           >
-            {weddingConfig.bride}
+            <ScriptName name={weddingConfig.bride} />
           </h1>
 
           <span

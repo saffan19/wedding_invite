@@ -11,16 +11,16 @@ export const weddingConfig = {
   hashtag: "#SafwanAndAfrah2026",
 
   // Date & Time — countdown targets the first event (the Nikah)
-  weddingDate: new Date("2026-10-22T18:30:00"),
+  weddingDate: new Date("2026-10-22T19:00:00"),
   weddingDateFormatted: "Thursday, 22 October 2026",
   weddingDateShort: "22 October 2026",
-  weddingTime: "6:30 PM",
+  weddingTime: "7:00 PM",
 
   // The Nikah
   ceremony: {
     name: "The Nikah",
     address: "Tennis Pavilion, Bengaluru Palace, 1/21, Palace Road, Vasanth Nagar, Bengaluru, Karnataka 560006",
-    time: "6:30 PM",
+    time: "7:00 PM",
     mapsUrl:
       "https://www.google.com/maps?q=Bengaluru+Palace,+Palace+Road,+Vasanth+Nagar,+Bengaluru,+Karnataka+560006&output=embed",
     openMapsUrl:
@@ -39,7 +39,7 @@ export const weddingConfig = {
 
   // Schedule for the two days
   schedule: [
-    { time: "6:30 PM", event: "The Nikah", icon: "heart", description: "Thursday, 22 October 2026 — Dinner follows" },
+    { time: "7:00 PM", event: "The Nikah", icon: "heart", description: "Thursday, 22 October 2026 — Dinner follows" },
     { time: "7:00 PM", event: "The Reception", icon: "sparkles", description: "Friday, 23 October 2026 — Dinner follows" },
   ],
 

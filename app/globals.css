@@ -17,6 +17,19 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Pagination: once the auto-play tour ends or is interrupted (or never
+   runs, e.g. prefers-reduced-motion), manual scrolling snaps cleanly to
+   one full section at a time instead of free continuous scroll. Kept off
+   during auto-play itself so it doesn't fight the programmatic scroll. */
+html.scroll-snap-active {
+  scroll-snap-type: y mandatory;
+}
+
+[data-section] {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
 body {
   font-family: 'Cormorant Garamond', serif;
   background-color: #F8F6F0;

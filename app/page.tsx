@@ -4,7 +4,6 @@ import HeroSection from "@/components/sections/HeroSection";
 import FormalInvitation from "@/components/sections/FormalInvitation";
 import Celebrations from "@/components/sections/Celebrations";
 import ScheduleTimeline from "@/components/sections/ScheduleTimeline";
-import DressCode from "@/components/sections/DressCode";
 
 import CountdownTimer from "@/components/sections/CountdownTimer";
 import Footer from "@/components/sections/Footer";
@@ -26,8 +25,6 @@ export default function Home() {
       <Celebrations />
       <SectionDivider />
       <ScheduleTimeline />
-      <SectionDivider />
-      <DressCode />
       <Footer />
     </main>
   );
