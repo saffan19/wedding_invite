@@ -61,7 +61,7 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `url('${withBasePath("/hero-background.png")}')`,
+          backgroundImage: `url('${withBasePath("/hero-background.jpeg")}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

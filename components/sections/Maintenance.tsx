@@ -14,7 +14,7 @@ export default function Maintenance() {
       <div
         className="absolute inset-0 opacity-40 mix-blend-overlay"
         style={{
-          backgroundImage: `url('${withBasePath("/hero-background.png")}')`,
+          backgroundImage: `url('${withBasePath("/hero-background.jpeg")}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
