@@ -23,7 +23,7 @@ export default function Celebrations() {
   return (
     <section
       data-section
-      className="relative bg-transparent overflow-hidden flex flex-col items-center justify-center min-h-[100svh]"
+      className="relative bg-transparent flex flex-col items-center justify-center min-h-[100svh]"
       style={{
         paddingTop: "clamp(4rem, 8vw, 6rem)",
         paddingBottom: "clamp(4rem, 8vw, 6rem)",

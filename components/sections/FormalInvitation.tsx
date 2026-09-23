@@ -20,9 +20,6 @@ const COLOR = {
 // rewritten, paraphrased, summarized, or "improved." Bold markers from the
 // brief indicate which words receive a subtle italic-serif emphasis.
 const INVITATION = {
-  firstName: "Afrah",
-  ampersand: "&",
-  lastName:  "Safwan",
   opening:   "With hearts full of gratitude to Allah,",
   body: [
     "we invite you to join us as we celebrate",
@@ -48,36 +45,12 @@ export default function FormalInvitation() {
         viewport: { once: true, margin: "-80px" },
       };
   const timings = [
-    { duration: 1.1, delay: 0.10, ease: [0.22, 1, 0.36, 1] as const },
-    { duration: 0.9, delay: 0.40, ease: [0.22, 1, 0.36, 1] as const },
-    { duration: 0.8, delay: 0.70, ease: [0.22, 1, 0.36, 1] as const },
-    { duration: 1.0, delay: 0.95, ease: [0.22, 1, 0.36, 1] as const },
+    { duration: 0.9, delay: 0.10, ease: [0.22, 1, 0.36, 1] as const },
+    { duration: 0.8, delay: 0.40, ease: [0.22, 1, 0.36, 1] as const },
+    { duration: 1.0, delay: 0.65, ease: [0.22, 1, 0.36, 1] as const },
   ];
 
   // ─── Type styles (private, restrained palette) ──────────────────────────
-  const namesContainerStyle: CSSProperties = {
-    fontFamily: "'Cormorant Garamond', serif",
-    color: COLOR.ink,
-    fontWeight: 500,
-    fontSize: "clamp(2.6rem, 6.2vw, 4.6rem)",
-    letterSpacing: "0.07em",
-    lineHeight: 1.05,
-    display: "flex",
-    flexWrap: "wrap",
-    alignItems: "baseline",
-    justifyContent: "center",
-    gap: "clamp(0.45rem, 1.4vw, 1rem)",
-  };
-
-  const ampersandStyle: CSSProperties = {
-    fontFamily: "'Great Vibes', cursive",
-    fontWeight: 400,
-    fontSize: "0.88em",
-    color: COLOR.sage,
-    letterSpacing: "0.02em",
-    transform: "translateY(-0.12em)",
-  };
-
   const openingStyle: CSSProperties = {
     fontFamily: "'Cormorant Garamond', serif",
     fontStyle: "italic",
@@ -168,23 +141,10 @@ export default function FormalInvitation() {
           gap: "clamp(1.5rem, 3.4vw, 2.6rem)",
         }}
       >
-        {/* 1 · Names — the visual heart */}
-        <motion.h2
-          {...sequence}
-          transition={timings[0]}
-          style={namesContainerStyle}
-        >
-          <span>{INVITATION.firstName}</span>
-          <span aria-label="and" style={ampersandStyle}>
-            {INVITATION.ampersand}
-          </span>
-          <span>{INVITATION.lastName}</span>
-        </motion.h2>
-
-        {/* 2 · Opening sentence (italic emphasis) + body */}
+        {/* 1 · Opening sentence (italic emphasis) + body */}
         <motion.div
           {...sequence}
-          transition={timings[1]}
+          transition={timings[0]}
           className="flex flex-col items-center text-center"
           style={{ gap: "clamp(0.6rem, 1.3vw, 1.05rem)", maxWidth: "44ch" }}
         >
@@ -198,10 +158,10 @@ export default function FormalInvitation() {
           </p>
         </motion.div>
 
-        {/* 3 · Delicate divider — exactly one, hairline-thick, antique champagne */}
+        {/* 2 · Delicate divider — exactly one, hairline-thick, antique champagne */}
         <motion.div
           {...sequence}
-          transition={timings[2]}
+          transition={timings[1]}
           aria-hidden
           className="flex items-center justify-center"
           style={{ gap: 14, marginBlock: "clamp(0.4rem, 1vw, 0.85rem)" }}
@@ -235,10 +195,10 @@ export default function FormalInvitation() {
           />
         </motion.div>
 
-        {/* 4 · Closing — Two hearts, two journeys, now becoming one. */}
+        {/* 3 · Closing — Two hearts, two journeys, now becoming one. */}
         <motion.div
           {...sequence}
-          transition={timings[3]}
+          transition={timings[2]}
           className="flex flex-col items-center text-center"
           style={{ maxWidth: "32ch" }}
         >

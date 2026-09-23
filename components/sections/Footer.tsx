@@ -49,17 +49,6 @@ export default function Footer() {
               />
             </motion.div>
 
-            <h2
-              style={{
-                fontFamily: "'Alex Brush', cursive",
-                color: GOLD,
-                fontSize: "clamp(2.5rem, 6vw, 4rem)",
-                lineHeight: 1.1,
-              }}
-            >
-              {weddingConfig.groom} & {weddingConfig.bride}
-            </h2>
-
             <div className="flex items-center gap-2 sm:gap-3 w-full max-w-[200px]">
               <div
                 className="h-[1px] flex-1"
