@@ -30,14 +30,16 @@ export default function Celebrations() {
       }}
     >
       <div className="relative z-10 w-full max-w-2xl mx-auto px-6 sm:px-8 flex flex-col items-center">
-        <AnimatedSection direction="fade" className="text-center mb-10 sm:mb-14">
+        <AnimatedSection direction="fade" className="text-center mb-10 sm:mb-14 w-full overflow-visible px-4">
           <h2
             style={{
               fontFamily: "'Great Vibes', cursive",
               color: THEME_COLOR,
               opacity: 0.9,
               fontSize: "clamp(2.5rem, 7vw, 5.5rem)",
-              lineHeight: 1.1,
+              lineHeight: 1.3,
+              overflow: "visible",
+              display: "inline-block",
             }}
           >
             {VENUE.title}
