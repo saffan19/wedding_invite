@@ -36,10 +36,12 @@ export default function Celebrations() {
               fontFamily: "'Great Vibes', cursive",
               color: THEME_COLOR,
               opacity: 0.9,
-              fontSize: "clamp(2.5rem, 7vw, 5.5rem)",
+              fontSize: "clamp(2.1rem, 7vw, 5.5rem)",
               lineHeight: 1.3,
               overflow: "visible",
-              display: "inline-block",
+              display: "block",
+              maxWidth: "80%",
+              marginInline: "auto",
             }}
           >
             {VENUE.title}
