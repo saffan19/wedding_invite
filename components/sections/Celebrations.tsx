@@ -13,7 +13,7 @@ const VENUE = {
   name: "Tennis Pavilion, Bengaluru Palace",
   address: "1/21, Palace Road, Vasanth Nagar, Bengaluru, Karnataka 560006",
   description:
-    "A graceful colonial-era garden house on the historic palace grounds — the setting for our Nikah and reception.",
+    "A graceful colonial-era garden house on the historic palace grounds - the setting for our Nikah and reception.",
   directionsLabel: "Directions",
   mapUrl:
     "https://www.google.com/maps?q=Tennis+Pavilion,+Bengaluru+Palace,+1/21,+Palace+Rd,+Vasanth+Nagar,+Bengaluru,+Karnataka+560006&ftid=0x3bae16447c8f44d5:0x9e5a5f22251abe34&entry=gps&shh=CAE",
